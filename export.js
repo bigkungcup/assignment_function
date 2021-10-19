@@ -14,7 +14,7 @@ export var criteria = function (score) {
   let running_num = 0;
 
   //รับคะแนนมาเปรียบเทียบในรายวิชาที่ใส่ใน Array ว่ารายวิชานั้นๆได้เกรดเป็นอะไร
-  for (i of score) {
+  for (let i of score) {
     if (i >= 80) {
       obj.push({ course: course[running_num % 3], score: i, grade: "A" });
       running_num++;
@@ -35,8 +35,8 @@ export var criteria = function (score) {
 // เอาไปใช้ในการคำนวน function ถัดไป
 export var mean = (score) => {
   let sum = 0;
-  for (i of score) {
-    sum += i;
+  for (let k of score) {
+    sum += k;
   }
   return sum;
 };
@@ -49,7 +49,7 @@ export var group = function (score = []) {
   let passingScore = mean(score);
   let obj = [];
 
-  for (i of score) {
+  for (let i of score) {
     if (i >= passingScore) {
       obj.push({ number: running_num, score: i, pass: true });
       running_num++;
